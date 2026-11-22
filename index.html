@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="my">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a38">
+  <meta name="description" content="သင့်တည်နေရာအလိုက် ရာသီဥတုကို မြန်မာလို အသံထွက်ဖတ်ပြပေးမယ့် ဝက်ဘ်ဆိုက်။">
+  <title>မိုးလေဝသ — မြန်မာလိုပြောပြမယ်</title>
+  <link rel="preconnect" href="https://api.open-meteo.com">
+  <link rel="preconnect" href="https://api.bigdatacloud.net">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="မိုးလေဝသ ပင်မစာမျက်နှာ">
+        <span class="brand-icon" aria-hidden="true">☀️</span>
+        <span>မိုးလေဝသ</span>
+      </a>
+      <span class="live-label"><span class="live-dot"></span> တိုက်ရိုက်အချက်အလက်</span>
+    </header>
+
+    <section class="intro" id="top">
+      <p class="eyebrow">သင့်နေ့ရက်အတွက် မိုးလေဝသ</p>
+      <h1>ဒီနေ့ ရာသီဥတု<br><span>ဘယ်လိုရှိမလဲ?</span></h1>
+      <p class="intro-copy">သင့်မြို့ရဲ့ ရာသီဥတုကို မြန်မာလို အသံထွက်ဖတ်ပြပေးမယ်။</p>
+    </section>
+
+    <section class="search-panel" aria-label="မြို့ရှာရန်">
+      <form id="search-form" class="search-form">
+        <label class="visually-hidden" for="city-input">မြို့အမည်</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input id="city-input" type="search" placeholder="မြို့အမည် ရိုက်ထည့်ပါ (ဥပမာ - Mandalay)" autocomplete="off">
+        <button class="search-button" type="submit">ရှာမယ်</button>
+      </form>
+      <button id="location-button" class="location-button" type="button">
+        <span aria-hidden="true">◎</span> ကျွန်ုပ်ရှိနေတဲ့နေရာ
+      </button>
+    </section>
+
+    <p id="status" class="status" role="status" aria-live="polite">တည်နေရာကို ရှာဖွေနေပါတယ်…</p>
+
+    <section id="weather-content" class="weather-content" aria-label="ရာသီဥတုအချက်အလက်" hidden>
+      <article class="current-card">
+        <div class="current-heading">
+          <div>
+            <p class="card-label">လက်ရှိ ရာသီဥတု</p>
+            <h2 id="city-name">—</h2>
+            <p id="local-date" class="local-date">—</p>
+          </div>
+          <div id="weather-icon" class="weather-icon" aria-hidden="true">☀️</div>
+        </div>
+        <div class="temperature-row">
+          <p id="temperature" class="temperature">—°</p>
+          <div class="condition-block">
+            <p id="condition" class="condition">—</p>
+            <p id="feels-like" class="feels-like">ခံစားရသည့်အပူချိန် —°</p>
+          </div>
+        </div>
+        <div class="weather-details">
+          <div class="detail-item"><span class="detail-icon" aria-hidden="true">💧</span><span><small>စိုထိုင်းဆ</small><strong id="humidity">—%</strong></span></div>
+          <div class="detail-item"><span class="detail-icon" aria-hidden="true">🌬️</span><span><small>လေတိုက်နှုန်း</small><strong id="wind">— km/h</strong></span></div>
+          <div class="detail-item"><span class="detail-icon" aria-hidden="true">🌧️</span><span><small>မိုးရေချိန်</small><strong id="precipitation">— mm</strong></span></div>
+        </div>
+        <button id="speak-button" class="speak-button" type="button">
+          <span id="speak-icon" aria-hidden="true">🔊</span><span id="speak-label">အသံဖြင့် ပြန်ပြောပါ</span>
+        </button>
+        <p id="voice-note" class="voice-note">စာမျက်နှာဖွင့်ချိန် အသံထွက်ဖတ်ရန် ကြိုးစားပါမယ်။ အသံမကြားရပါက အပေါ်ကခလုတ်ကို နှိပ်ပါ။</p>
+      </article>
+
+      <section class="forecast-section" aria-labelledby="forecast-heading">
+        <div class="section-heading">
+          <div><p class="card-label">လာမယ့်ရက်များ</p><h2 id="forecast-heading">၅ ရက်စာ ခန့်မှန်းချက်</h2></div>
+          <span class="forecast-mark" aria-hidden="true">↗</span>
+        </div>
+        <div id="forecast-list" class="forecast-list"></div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <span>မိုးလေဝသအချက်အလက် — Open-Meteo</span>
+      <span>အသံဖတ်ခြင်း — သင့်စက်၏ အသံစနစ်</span>
+    </footer>
+  </main>
+</body>
+</html>
